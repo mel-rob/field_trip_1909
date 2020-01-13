@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :flights, only: [:show]
 
+  post '/passengers/:id/flights', to: 'passenger_flights#create'
+
   resources :passengers, only: [:show]
 end
