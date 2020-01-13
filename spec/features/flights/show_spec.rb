@@ -9,8 +9,9 @@ RSpec.describe "Flights Show Page" do
     @passenger_1 = Passenger.create!(name: "Melissa", age: 34)
     @passenger_2 = Passenger.create!(name: "David", age: 29)
     @passenger_3 = Passenger.create!(name: "Ali", age: 34)
+    @passenger_4 = Passenger.create!(name: "Jordan", age: 16)
 
-    @flight_1.passengers << [@passenger_1, @passenger_2, @passenger_3]
+    @flight_1.passengers << [@passenger_1, @passenger_2, @passenger_3, @passenger_4]
   end
 
   describe "When I visit a flights show page" do
@@ -39,6 +40,14 @@ RSpec.describe "Flights Show Page" do
       expect(page).to have_content(@passenger_1.name)
       expect(page).to have_content(@passenger_2.name)
       expect(page).to have_content(@passenger_3.name)
+    end
+
+    it 'I see the count of minors and adults on a flight' do
+
+      visit flight_path(@flight_1)
+
+      expect(page).to have_content('Total Adults: 3')
+      expect(page).to have_content('Total Minors: 1')
     end
   end
 end
