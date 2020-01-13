@@ -4,7 +4,7 @@ RSpec.describe "Flights Show Page" do
   before(:each) do
     @southwest = Airline.create(name: "Southwest")
 
-    @flight_1 = @southwest.flights.create!(number: "123", date: "011120", time: "13:00", departure_city: "Denver, CO", arrival_city: "San Francisco, CA")
+    @flight_1 = @southwest.flights.create!(number: "123", date: "01/11/20", time: "13:00", departure_city: "Denver, CO", arrival_city: "San Francisco, CA")
 
     @passenger_1 = Passenger.create!(name: "Melissa", age: 34)
     @passenger_2 = Passenger.create!(name: "David", age: 29)
@@ -39,8 +39,6 @@ RSpec.describe "Flights Show Page" do
       expect(page).to have_content(@passenger_1.name)
       expect(page).to have_content(@passenger_2.name)
       expect(page).to have_content(@passenger_3.name)
-
-      save_and_open_page
     end
   end
 end
