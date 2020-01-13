@@ -38,12 +38,9 @@ RSpec.describe "Passengers Show Page" do
 
       fill_in :flight_number, with: '789'
       click_button 'Submit'
-      save_and_open_page
 
-      expect(page).to have_content('Flight added!')
       expect(current_path).to eq(passenger_path(@passenger_1))
       expect(page).to have_link('789')
-
     end
   end
 end
