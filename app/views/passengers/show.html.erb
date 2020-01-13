@@ -1,0 +1,8 @@
+<h1>Information for <%= @passenger.name %></h1>
+
+<h3>Flights taken:</h5>
+  <% @passenger.flights.each do |flight| %>
+    <ul>
+      <li>Flight: <%= link_to flight.number, flight_path(flight) %></li>
+    </ul>
+  <% end %>
